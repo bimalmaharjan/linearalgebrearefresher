@@ -1,6 +1,5 @@
 from decimal import Decimal, getcontext
 from copy import deepcopy
-
 from vector import Vector
 from plane import Plane
 from hyperplane import Hyperplane
@@ -54,17 +53,10 @@ class LinearSystem(object):
 
         new_normal_vector = Vector(n1.timescalar(coefficient)).plus(n2)
         new_constant_term = k1 * coefficient + k2
-
-        print self[row_to_be_added_to]
-
-        print row_to_be_added_to
-
-        
         self[row_to_be_added_to] = Plane(normal_vector=Vector(new_normal_vector),constant_term=new_constant_term)
 
 
-        print "gggg"
-
+        
     def swap_with_row_below_non_zero_coefficient_if_able(self,row,col):
         num_equations = len(self)
 
